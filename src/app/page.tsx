@@ -2,7 +2,7 @@ import { getServerSession } from "next-auth";
 
 import { PurchaseType } from "@/lib/utils";
 import { joinBackendUrl } from "@/lib/utils";
-import { PurchaseCard } from "./components";
+import { PurchaseCard, AddButton } from "./components";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
 export const metadata = {
@@ -25,7 +25,10 @@ export default async function Page() {
 
   return (
     <main className='frame w-full flex-1 flex flex-col gap-2'>
-      <header className='text-xl font-semibold text-slate-700'>购物信息</header>
+      <header className='flex flex-row justify-between px-1'>
+        <h1 className='text-xl font-semibold text-slate-700'>购物信息</h1>
+        <AddButton />
+      </header>
       <ul className='flex flex-col gap-2'>
         {purchases.map((item, index) => (
           <PurchaseCard key={item.pid} purchase={item} index={index} />
