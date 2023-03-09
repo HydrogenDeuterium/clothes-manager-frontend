@@ -15,7 +15,7 @@ export default async function Page() {
   const session = await getServerSession(authOptions);
   if (!session) return <main className='w-fit text-slate-800'>You need to login to view this page!</main>;
 
-  const res = await fetch(joinBackendUrl(["purchases"]));
+  const res = await fetch(joinBackendUrl(["purchases"]), { cache: "no-store" });
   if (!res.ok) throw new Error("Something went wrong!");
 
   const result = await res.json();
@@ -26,7 +26,7 @@ export default async function Page() {
   return (
     <main className='frame w-full flex-1 flex flex-col gap-2'>
       <header className='text-xl font-semibold text-slate-700'>购物信息</header>
-      <ul>
+      <ul className='flex flex-col gap-2'>
         {purchases.map((item, index) => (
           <PurchaseCard key={item.pid} purchase={item} index={index} />
         ))}

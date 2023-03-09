@@ -6,7 +6,7 @@ import { ObjectType } from "@/lib/utils";
 import { joinBackendUrl } from "@/lib/utils";
 
 export default async function Page({ params: { purchaseid } }: { params: { purchaseid: string } }) {
-  const res = await fetch(joinBackendUrl([`/purchases/${purchaseid}/objects`]));
+  const res = await fetch(joinBackendUrl([`/purchases/${purchaseid}/objects`]), { cache: "no-store" });
   if (!res.ok) notFound();
 
   const result = await res.json();

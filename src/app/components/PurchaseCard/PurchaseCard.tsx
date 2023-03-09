@@ -14,7 +14,7 @@ export default function PurchaseCard({ purchase, index }: { purchase: PurchaseTy
     <li className={[style.card, "border border-gray-500 rounded-md p-2 flex flex-col gap-3"].join(" ")}>
       <input id={String(purchase.pid)} type='checkbox' style={{ display: "none" }} />
 
-      <div className='flex flex-col md:flex-row purchases-center justify-between gap-2'>
+      <div className='flex flex-col md:flex-row purchases-center justify-between'>
         <div className='flex flex-row purchases-center justify-start gap-2'>
           <span className='h-6 w-6 rounded-full font-bold bg-purple-600 text-white flex purchases-center justify-center'>
             {index + 1}
@@ -28,10 +28,9 @@ export default function PurchaseCard({ purchase, index }: { purchase: PurchaseTy
           <span className='bg-yellow-300 px-1' style={{ borderRadius: "40% 30% 50% 40%" }}>
             {purchase.part_sub}
           </span>
-          <span className='text-red-600'>￥{purchase.p_price}</span>
         </div>
 
-        <div className='flex flex-row items-center justify-start gap-1'>
+        <div className='flex flex-row items-center justify-end gap-1'>
           <EditButton />
           <DeleteButton />
           <Link href={`/purchase/` + purchase.pid} className='text-slate-700 hover:text-slate-800'>
@@ -44,22 +43,26 @@ export default function PurchaseCard({ purchase, index }: { purchase: PurchaseTy
       </div>
 
       <div className={style.detail}>
-        <span>
+        <div>
           <span className={style.label}>购买介绍：</span>
           <span>{purchase.description}</span>
-        </span>
-        <span>
-          <span className={style.label}>购买备注：</span>
-          <span>{purchase.remark}</span>
-        </span>
-        <span>
+        </div>
+        <div>
+          <span className={style.label}>购买价格：</span>
+          <span>{purchase.p_price}</span>
+        </div>
+        <div>
           <span className={style.label}>购买地点：</span>
           <span>{purchase.p_from}</span>
-        </span>
-        <span>
-          <span className={style.label}>衣服厚度：</span>
+        </div>
+        <div>
+          <span className={style.label}>购买备注：</span>
+          <span>{purchase.remark}</span>
+        </div>
+        <div>
+          <span className={style.label}>衣物厚度：</span>
           <span>{purchase.thickness}</span>
-        </span>
+        </div>
       </div>
     </li>
   );
