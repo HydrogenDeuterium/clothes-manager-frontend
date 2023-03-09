@@ -1,5 +1,8 @@
 import { getServerSession } from "next-auth";
 
+import { PurchaseType } from "@/lib/utils";
+import { joinBackendUrl } from "@/lib/utils";
+import { PurchaseCard } from "./components";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
 export const metadata = {
@@ -12,9 +15,22 @@ export default async function Page() {
   const session = await getServerSession(authOptions);
   if (!session) return <main className='w-fit text-slate-800'>You need to login to view this page!</main>;
 
+  const res = await fetch(joinBackendUrl(["purchases"]));
+  if (!res.ok) throw new Error("Something went wrong!");
+
+  const result = await res.json();
+  if (!result.status) throw new Error("Something went wrong!");
+
+  const purchases: PurchaseType[] = result.data;
+
   return (
-    <main>
-      <h1>Hello world</h1>
+    <main className='frame w-full flex-1 flex flex-col gap-2'>
+      <header className='text-xl font-semibold text-slate-700'>购物信息</header>
+      <ul>
+        {purchases.map((item, index) => (
+          <PurchaseCard key={item.pid} purchase={item} index={index} />
+        ))}
+      </ul>
     </main>
   );
 }

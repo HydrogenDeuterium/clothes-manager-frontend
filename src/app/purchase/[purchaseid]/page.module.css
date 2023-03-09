@@ -1,0 +1,23 @@
+.table {
+  @apply w-full;
+}
+
+.table thead {
+  @apply bg-green-600 text-white;
+}
+
+.table th {
+  @apply whitespace-nowrap;
+}
+
+.table :is(th, td) {
+  @apply p-2 border border-gray-300 text-left;
+}
+
+.table tbody tr:nth-child(even) {
+  @apply bg-gray-100;
+}
+
+.table tbody tr:hover {
+  @apply bg-gray-200;
+}

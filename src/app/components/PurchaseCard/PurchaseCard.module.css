@@ -1,0 +1,11 @@
+.label {
+  @apply text-slate-700 font-semibold;
+}
+
+.detail {
+  @apply hidden flex-col gap-1;
+}
+
+.card input:checked ~ div:last-of-type {
+  @apply flex;
+}
