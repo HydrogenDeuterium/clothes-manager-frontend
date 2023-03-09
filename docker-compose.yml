@@ -1,0 +1,10 @@
+version: "3"
+services:
+  clothes-manager-frontend:
+    build: .
+    image: clothes-manager-frontend
+    container_name: aclothes-manager-frontendpi
+    network_mode: "bridge"
+    restart: unless-stopped
+    ports:
+      - 3000:3000

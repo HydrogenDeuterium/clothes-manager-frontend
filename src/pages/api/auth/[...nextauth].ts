@@ -15,14 +15,13 @@ export const authOptions: NextAuthOptions = {
         password: { label: "Password", type: "password", placeholder: "Passwrod" },
       },
       async authorize(credentials, req) {
-        const { username, password } = credentials as {
-          username: string;
-          password: string;
-        };
+        const { username, password } = credentials as { username: string; password: string };
+        const ADMIN_USER = process.env.ADMIN_USER;
+        const ADMIN_PWD = process.env.ADMIN_PWD;
 
-        if (username === "cael" && password === "@Cjw20001212") {
-          return { username } as any;
-        } else return null;
+        if (!ADMIN_PWD || !ADMIN_USER) throw new Error("Please add ADMIN_PWD and ADMIN_USER to env");
+        if (username === ADMIN_USER && password === ADMIN_PWD) return { username } as any;
+        else return null;
       },
     }),
   ],

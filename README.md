@@ -1,22 +1,37 @@
 # Clothes Manager Frontend
 
-## 1. Deploy
+## 1. Develope project locally
 
-Add .env
+Add `.env`:
 
 ```bash
-NEXTAUTH_SECRET="create_a_nextauth_secret"
-NEXTAUTH_URL="https://your.website.domain.com/"
+NEXTAUTH_URL="http://localhost:3000/"
+NEXTAUTH_SECRET="8GYrPDgw9wj5213UHWIm"
 ```
 
-build project:
+Install packages:
 
 ```bash
 npm run build
 ```
 
-start project:
+Start development:
 
 ```bash
 npm start
+```
+
+## 2. Deploy containerizedly
+
+Add `.env`:
+
+```bash
+NEXTAUTH_URL="https://your.domain.com/"
+NEXTAUTH_SECRET="8GYrPDgw9wj5213UHWIm"
+```
+
+Deploy to docker container:
+
+```bash
+docker-compose up -d
 ```
