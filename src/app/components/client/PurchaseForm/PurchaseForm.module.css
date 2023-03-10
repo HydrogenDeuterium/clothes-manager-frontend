@@ -1,0 +1,31 @@
+.window {
+  @apply z-10 fixed top-0 left-0 w-full h-full flex flex-col items-center justify-center bg-black/[0.4];
+}
+
+.form {
+  @apply duration-200 bg-white w-full md:max-w-xl flex flex-col items-center gap-2 rounded-md p-5 md:p-7;
+}
+
+.input {
+  @apply p-2 rounded-sm outline outline-1 text-gray-700;
+}
+
+.input:focus {
+  @apply outline-blue-600;
+}
+
+.label {
+  @apply flex flex-row items-center gap-2 text-gray-700 font-semibold;
+}
+
+.actionbtn {
+  @apply w-full py-2 rounded-sm outline outline-1 outline-black hover:shadow-md mt-3;
+}
+
+.form:valid .actionbtnsubmit:hover {
+  @apply bg-emerald-700;
+}
+
+.form:invalid .actionbtnsubmit {
+  @apply cursor-not-allowed;
+}

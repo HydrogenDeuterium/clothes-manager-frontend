@@ -5,9 +5,8 @@ import { BsChevronCompactDown } from "react-icons/bs";
 import { timeAgo } from "@/lib/utils";
 import { PurchaseType } from "@/lib/utils";
 
+import { EditButton } from "../../client";
 import style from "./PurchaseCard.module.css";
-import EditButton from "../EditButton/EditButton";
-import DeleteButton from "../DeleteButton/DeleteButton";
 
 export default function PurchaseCard({ purchase, index }: { purchase: PurchaseType; index: number }) {
   return (
@@ -16,13 +15,13 @@ export default function PurchaseCard({ purchase, index }: { purchase: PurchaseTy
 
       <div className='flex flex-col md:flex-row purchases-center justify-between'>
         <div className='flex flex-row purchases-center justify-start gap-2'>
-          <span className='h-6 w-6 rounded-full font-bold bg-purple-600 text-white flex purchases-center justify-center'>
+          <span className='h-6 w-6 rounded-full font-bold bg-emerald-600 text-white flex purchases-center justify-center'>
             {index + 1}
           </span>
           <span className='text-slate-700 font-semibold'>
             {purchase.p_name}({timeAgo(purchase.p_date)})
           </span>
-          <span className='bg-green-300 px-1' style={{ borderRadius: "40% 30% 50% 40%" }}>
+          <span className='bg-purple-300 px-1' style={{ borderRadius: "40% 30% 50% 40%" }}>
             {purchase.part_body}
           </span>
           <span className='bg-yellow-300 px-1' style={{ borderRadius: "40% 30% 50% 40%" }}>
@@ -31,8 +30,7 @@ export default function PurchaseCard({ purchase, index }: { purchase: PurchaseTy
         </div>
 
         <div className='flex flex-row items-center justify-end gap-1'>
-          <EditButton />
-          <DeleteButton />
+          <EditButton purchase={purchase} />
           <Link
             aria-label='detail link'
             href={`/purchase/` + purchase.pid}

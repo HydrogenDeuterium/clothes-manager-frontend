@@ -4,7 +4,7 @@ export default function Loading() {
       <svg
         aria-hidden='true'
         style={{ width: "2rem", height: "2rem" }}
-        className='animate-spin text-gray-400 fill-blue-600'
+        className='animate-spin text-gray-400 fill-emerald-600'
         viewBox='0 0 100 101'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'

@@ -2,6 +2,8 @@ import "./globals.css";
 
 import { NextauthProvider, Navbar, Footer } from "@/components";
 
+import { PurchaseContextProvider } from "./components/client";
+
 export const metadata = {
   title: "Clothes Manager",
   description: "Clothes manager",
@@ -14,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <NextauthProvider>
           <Navbar />
-          {children}
+          <PurchaseContextProvider>{children}</PurchaseContextProvider>
           <Footer />
         </NextauthProvider>
       </body>

@@ -2,7 +2,8 @@ import { getServerSession } from "next-auth";
 
 import { PurchaseType } from "@/lib/utils";
 import { joinBackendUrl } from "@/lib/utils";
-import { PurchaseCard, AddButton } from "./components";
+import { PurchaseCard } from "./components/server";
+import { AddButton } from "./components/client";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
 export default async function Page() {
