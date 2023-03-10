@@ -3,7 +3,7 @@
 }
 
 .table thead {
-  @apply bg-green-600 text-white;
+  @apply bg-emerald-600 text-white;
 }
 
 .table th {

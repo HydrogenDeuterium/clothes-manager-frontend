@@ -6,7 +6,7 @@ import { Login } from "@/components";
 export default function Navbar() {
   return (
     <nav className='w-full frame flex flex-row items-center justify-between'>
-      <Link href='/' aria-label='home page logo link'>
+      <Link href='/' aria-label='home page link'>
         <TbBrandShopee size={38} />
       </Link>
       <Login />

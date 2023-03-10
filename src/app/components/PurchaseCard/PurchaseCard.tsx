@@ -11,7 +11,7 @@ import DeleteButton from "../DeleteButton/DeleteButton";
 
 export default function PurchaseCard({ purchase, index }: { purchase: PurchaseType; index: number }) {
   return (
-    <li className={[style.card, "border border-gray-500 rounded-md p-2 flex flex-col gap-3"].join(" ")}>
+    <li className={style.card}>
       <input id={String(purchase.pid)} type='checkbox' style={{ display: "none" }} />
 
       <div className='flex flex-col md:flex-row purchases-center justify-between'>
@@ -33,7 +33,11 @@ export default function PurchaseCard({ purchase, index }: { purchase: PurchaseTy
         <div className='flex flex-row items-center justify-end gap-1'>
           <EditButton />
           <DeleteButton />
-          <Link href={`/purchase/` + purchase.pid} className='text-slate-700 hover:text-slate-800'>
+          <Link
+            aria-label='detail link'
+            href={`/purchase/` + purchase.pid}
+            className='text-slate-700 hover:text-slate-800'
+          >
             <TiArrowForward size={20} />
           </Link>
           <label htmlFor={String(purchase.pid)} className='cursor-pointer'>
