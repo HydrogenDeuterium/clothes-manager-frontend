@@ -2,13 +2,14 @@
 
 import { useRouter } from "next/navigation";
 
-import { joinBackendUrl } from "@/lib/utils";
-import { useObjectContext } from "../ObjectContextProvider/ObjectContextProvider";
 import style from "./ObjectForm.module.css";
+import { joinBackendUrl } from "@/lib/utils";
+import { useObjectContext } from "./ObjectContextProvider";
 
 export default function ObjectForm() {
   const router = useRouter();
   const { object, setObject, purchaseid, isOpenForm, setIsOpenForm, isInsertMode } = useObjectContext();
+  console.log(object);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();

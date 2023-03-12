@@ -3,15 +3,14 @@
 import { ObjectType } from "@/lib/utils";
 import { MdModeEditOutline } from "react-icons/md";
 
-import { useObjectContext } from "../ObjectContextProvider/ObjectContextProvider";
+import { useObjectContext } from "../../../../components/client/ObjectContextProvider/ObjectContextProvider";
 
-export default function EditButton({ purchaseid, object }: { purchaseid: number; object: ObjectType }) {
-  const { setIsOpenForm, setIsInsertMode, setObject, setPurchaseid } = useObjectContext();
+export default function EditButton({ object }: { object: ObjectType }) {
+  const { setIsOpenForm, setIsInsertMode, setObject } = useObjectContext();
 
   return (
     <button
       onClick={() => {
-        setPurchaseid(purchaseid);
         setObject(object);
         setIsInsertMode(false);
         setIsOpenForm(true);

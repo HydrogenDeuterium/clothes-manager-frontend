@@ -1,11 +1,9 @@
-import Link from "next/link";
-import { TiArrowForward } from "react-icons/ti";
 import { BsChevronCompactDown } from "react-icons/bs";
 
 import { timeAgo } from "@/lib/utils";
 import { PurchaseType } from "@/lib/utils";
 
-import { EditButton } from "../../client";
+import { ShareButton, EditButton } from "../../client";
 import style from "./PurchaseCard.module.css";
 
 export default function PurchaseCard({ purchase, index }: { purchase: PurchaseType; index: number }) {
@@ -31,13 +29,7 @@ export default function PurchaseCard({ purchase, index }: { purchase: PurchaseTy
 
         <div className='flex flex-row items-center justify-end gap-1'>
           <EditButton purchase={purchase} />
-          <Link
-            aria-label='detail link'
-            href={`/purchase/` + purchase.pid}
-            className='text-slate-700 hover:text-slate-800'
-          >
-            <TiArrowForward size={20} />
-          </Link>
+          <ShareButton purchaseid={purchase.pid} />
           <label htmlFor={String(purchase.pid)} className='cursor-pointer'>
             <BsChevronCompactDown />
           </label>

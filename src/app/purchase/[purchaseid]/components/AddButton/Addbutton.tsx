@@ -2,16 +2,18 @@
 
 import { AiOutlinePlusCircle } from "react-icons/ai";
 
-import { defaultObject, useObjectContext } from "../ObjectContextProvider/ObjectContextProvider";
+import {
+  defaultObject,
+  useObjectContext,
+} from "../../../../components/client/ObjectContextProvider/ObjectContextProvider";
 
-export default function AddButton({ purchaseid }: { purchaseid: number }) {
-  const { setIsOpenForm, setIsInsertMode, setObject, setPurchaseid } = useObjectContext();
+export default function AddButton() {
+  const { setIsOpenForm, setIsInsertMode, setObject } = useObjectContext();
   return (
     <button
       type='button'
       aria-label='add button'
       onClick={() => {
-        setPurchaseid(purchaseid);
         setObject(defaultObject);
         setIsInsertMode(true);
         setIsOpenForm(true);

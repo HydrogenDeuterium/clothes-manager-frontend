@@ -1,6 +1,6 @@
 "use client";
 
-import ObjectForm from "../ObjectForm/ObjectForm";
+import ObjectForm from "./ObjectForm";
 import { ObjectType } from "@/lib/utils";
 import { createContext, useContext, useState } from "react";
 

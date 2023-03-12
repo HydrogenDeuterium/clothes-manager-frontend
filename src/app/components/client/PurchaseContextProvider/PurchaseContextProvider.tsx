@@ -1,6 +1,6 @@
 "use client";
 
-import PurchaseForm from "../PurchaseForm/PurchaseForm";
+import PurchaseForm from "./PurchaseForm";
 import { PurchaseType } from "@/lib/utils";
 import { createContext, useContext, useState } from "react";
 
