@@ -11,7 +11,7 @@ export default function PurchaseCard({ purchase, index }: { purchase: PurchaseTy
     <li className={style.card}>
       <input id={String(purchase.pid)} type='checkbox' style={{ display: "none" }} />
 
-      <div className='flex flex-col md:flex-row purchases-center justify-between'>
+      <div className='flex-1 flex flex-col md:flex-row purchases-center justify-between'>
         <div className='flex flex-row purchases-center justify-start gap-2'>
           <span className='h-6 w-6 rounded-full font-bold bg-emerald-600 text-white flex purchases-center justify-center'>
             {index + 1}
@@ -27,9 +27,9 @@ export default function PurchaseCard({ purchase, index }: { purchase: PurchaseTy
           </span>
         </div>
 
-        <div className='flex flex-row items-center justify-end gap-1'>
-          <EditButton purchase={purchase} />
+        <div className='flex flex-row items-center justify-end gap-2'>
           <ShareButton purchaseid={purchase.pid} />
+          <EditButton purchase={purchase} />
           <label htmlFor={String(purchase.pid)} className='cursor-pointer'>
             <BsChevronCompactDown />
           </label>

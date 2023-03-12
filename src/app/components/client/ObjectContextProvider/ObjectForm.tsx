@@ -9,12 +9,13 @@ import { useObjectContext } from "./ObjectContextProvider";
 export default function ObjectForm() {
   const router = useRouter();
   const { object, setObject, purchaseid, isOpenForm, setIsOpenForm, isInsertMode } = useObjectContext();
-  console.log(object);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    const url = joinBackendUrl(["purchases", purchaseid.toString(), "objects"]);
+    const url = isInsertMode
+      ? joinBackendUrl(["purchases", purchaseid.toString(), "objects"])
+      : joinBackendUrl(["objects", object.oid.toString()]);
 
     fetch(url, {
       method: isInsertMode ? "POST" : "PUT",
@@ -96,7 +97,6 @@ export default function ObjectForm() {
               损坏情况
             </label>
             <input
-              required
               id='broken_info'
               name='broken_info'
               maxLength={100}
