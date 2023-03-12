@@ -10,7 +10,7 @@ export default function AddButton() {
   return (
     <button
       type='button'
-      aria-label='edit button'
+      aria-label='add button'
       onClick={() => {
         setPurchase(defaultPurchase);
         setIsInsertMode(true);

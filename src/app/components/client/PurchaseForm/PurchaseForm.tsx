@@ -37,7 +37,9 @@ export default function PurchaseForm() {
       className={[style.window, "frame", isOpenForm ? "scale-100" : "scale-0"].join(" ")}
     >
       <form onSubmit={handleSubmit} className={[style.form, isOpenForm ? "scale-100" : "scale-0"].join(" ")}>
-        <h1 className='text-xl font-semibold text-gray-700 mb-3 border-b-4 border-emerald-600'>添加购买记录</h1>
+        <h1 className='text-xl font-semibold text-gray-700 mb-3 border-b-4 border-emerald-600'>
+          {isInsertMode ? "添加" : "更新"}购买记录
+        </h1>
 
         <div className='w-full grid grid-cols-3 gap-2'>
           <div className='flex flex-col w-full gap-1'>

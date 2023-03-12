@@ -17,3 +17,7 @@
 .card input:checked ~ div:last-of-type {
   @apply flex;
 }
+
+.card input:checked ~ div:first-of-type label {
+  @apply rotate-180;
+}
